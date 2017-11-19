@@ -6,7 +6,7 @@ Events
 {
 	uid:integer,
 	name:string,
-	startDate:Date,
+	startDate:Date, //format: `date "+%Y-%m-%dZ%H:%M:%S"`
 	endDate:Date,
 	description:string,
 	categories:[string],
