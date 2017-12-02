@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Uvent</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"> -->
+    <link rel="stylesheet" href="CDNs/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="CDNs/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="CDNs/Monserrat.css" type="text/css">
+    <link rel="stylesheet" href="CDNs/BarlowSemiCondensed.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+    <script src="CDNs/materialize.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+        <h1 style="font-size: 100px; text-align:center;">Uvent</h1>
+      </div>
+
+      <div id="main" class="row">
+        <div id="left" class="col-md-4 col-12">
+          <section style="text-align:center;">
+            <p>Welcome to the Uvent Event Suggestion Dashboard!</p><br>
+            <p>Have an event you'd like to add to our database? Feel free to submit it using this form!</p><br>
+            <button id="getEvents" onClick="getEvents()" class="waves-effect waves-light btn-large">See Events</button>
+          </section>
+        </div>
+
+
+        <div id="right" class="right col-md-8 col-12">
+          <form id="createEventForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="name" type="text" class="validate">
+                <label for="name">Event Name</label>
+              </div>
+            </div>
+            <div class="row">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="description" class="materialize-textarea"></textarea>
+                <label for="description">Event Description</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="categories" type="text" class="validate">
+                <label for="categories">Categories</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="startDate" type="text" class="datepicker">
+                <label for="startDate">Start Date</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="startTime" type="text" class="timepicker">
+                <label for="startTime">Start Time</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="endDate" type="text" class="datepicker">
+                <label for="endDate">End Date</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="endTime" type="text" class="timepicker">
+                <label for="endTime">End Time</label>
+              </div>
+            </div>
+
+            <input type="submit" class="waves-effect waves-light btn-large" />
+          </form>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="script.js" type="text/javascript"></script>
+
+</html>
