@@ -1,0 +1,44 @@
+{
+    "title" : "Event API call",
+    "description": "An POST api call for event creation",
+    "type": "object",
+    "required": ["operation", "payload"],
+    "properties": {
+        "operation" : {
+            "type": "string",
+            "enum" : ["create"]
+        },
+        "payload" : {
+            "required" : ["Item"],
+            "type" : "object",
+            "properties" : {
+                "Item": {
+                    "required" : ["description", "name", "startDate"],
+                    "type": "object",
+                    "properties" : {
+                        "categories" : {
+                            "type" : "array",
+                            "items" : {
+                                "type" : "string"
+                            }
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "endDate" : {
+                            "type": "string",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                        },
+                        "name": {
+                            "type" : "string"
+                        },
+                        "startDate" : {
+                            "type" : "string",
+                            "pattern" : "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

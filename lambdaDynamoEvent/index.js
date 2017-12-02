@@ -20,9 +20,12 @@ exports.handler = function(event, context, callback) {
 
     switch (operation) {
         case 'create':
+            var dateStr = new Date().toISOString().substring(0,19) + 'Z'
             event.payload.TableName = 'Events';
             event.payload.Item.eventID = uuid();
+            event.payload.Item.creationDate = dateStr;
             dynamo.put(event.payload, callback);
+
             break;
         case 'scan':
             var params = {
