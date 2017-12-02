@@ -17,19 +17,45 @@ exports.handler = function(event, context, callback) {
 
     var operation = event.operation
 
-    event.payload.TableName = 'Events';
-    event.payload.Item.eventID = uuid();
+
     switch (operation) {
         case 'create':
+            event.payload.TableName = 'Events';
+            event.payload.Item.eventID = uuid();
             dynamo.put(event.payload, callback);
             break;
-        case 'read':
-            dynamo.get(event.payload, callback);
+        case 'scan':
+            var params = {
+                "TableName": "Events",
+                "ScanFilter": {
+                    "startDate": {
+                        "ComparisonOperator" : "BETWEEN",
+                        "AttributeValueList" : [
+                            event.begin,
+                            event.end
+                        ]
+                    }
+                }
+            }
+            dynamo.scan(params, function(err, data) {
+              if (err) {
+                  console.log(err, err.stack);
+                  callback("Dynamo error.", null);
+              } // an error occurred
+              else  {
+                  console.log(data);           // successful response
+                  callback(null, data);
+              }
+
+            });
             break;
         case 'update':
             dynamo.update(event.payload, callback);
+            callback(null,null);
             break;
         default:
             callback('Unknown operation: ${operation}');
     }
+
+    return null;
 };
