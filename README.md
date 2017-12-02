@@ -1,6 +1,32 @@
 # uvent
 Alexa skill to discover events around the University of Maryland
 
+## API
+
+#### `/events`
+```
+Body: {
+  "name": "",
+  "description": "",
+  "categories": [],
+  "startDate": "",
+  "endDate": ""
+}
+```
+
+#### `/events/new`
+```
+Body: {
+  "name": "",
+  "description": "",
+  "categories": [],
+  "startDate": "",
+  "endDate": ""
+}
+```
+
+## DB Schema
+
 Events
 ```
 {
