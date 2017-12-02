@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
 
     switch (operation) {
         case 'create':
-            var dateStr = new Date().toISOString().substring(0,19) + 'Z'
+            var dateStr = new Date().toISOString().substring(0,19) + 'Z';
             event.payload.TableName = 'Events';
             event.payload.Item.eventID = uuid();
             event.payload.Item.creationDate = dateStr;
@@ -28,6 +28,9 @@ exports.handler = function(event, context, callback) {
 
             break;
         case 'scan':
+            if (!event.end) {
+                event.end = new Date(new Date(event.begin).getTime() + 7 * 24 * 3600 * 1000).toISOString().substring(0, 19) + 'Z';
+            }
             var params = {
                 "TableName": "Events",
                 "ScanFilter": {
@@ -46,15 +49,15 @@ exports.handler = function(event, context, callback) {
                   callback("Dynamo error.", null);
               } // an error occurred
               else  {
+                  data.statusCode = 200;
+                  data.headers = {
+                      "Access-Control-Allow-Origin": "*"
+                  }
                   console.log(data);           // successful response
                   callback(null, data);
               }
 
             });
-            break;
-        case 'update':
-            dynamo.update(event.payload, callback);
-            callback(null,null);
             break;
         default:
             callback('Unknown operation: ${operation}');
