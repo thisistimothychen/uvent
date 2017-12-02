@@ -18,7 +18,7 @@ exports.handler = function(event, context, callback) {
     var operation = event.operation
 
     event.payload.TableName = 'Events';
-    event.payload.eventID = uuid();
+    event.payload.Item.eventID = uuid();
     switch (operation) {
         case 'create':
             dynamo.put(event.payload, callback);
