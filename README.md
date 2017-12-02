@@ -4,9 +4,9 @@ Alexa skill to discover events around the University of Maryland
 Events
 ```
 {
-	uid:integer,
+	eventID:integer,
 	name:string,
-	startDate:Date, //format: `date "+%Y-%m-%dZ%H:%M:%S"`
+	startDate:Date, //format: `date "+%Y-%m-%dT%H:%M:%SZ"`
 	endDate:Date,
 	description:string,
 	categories:[string],
