@@ -31,6 +31,7 @@ var getEvents = function() {
 $('#createEventForm').submit(function(e) {
     // e.preventDefault(); // avoid to execute the actual submit of the form.
     var nameValue = document.getElementById("name").value;
+    var locationValue = document.getElementById("location").value;
     var descriptionValue = document.getElementById("description").value;
     var categoriesValue = document.getElementById("categories").value;
 
@@ -60,6 +61,7 @@ $('#createEventForm').submit(function(e) {
         'Item': {
           'name': nameValue,
           'description': descriptionValue,
+          'location': locationValue,
           'categories': categoriesValue.split(','),
           'startDate': startDateValue,
           'endDate': endDateValue
@@ -79,26 +81,3 @@ $('#createEventForm').submit(function(e) {
       }
     });
 });
-
-
-//
-// $("#createEventForm").submit(function(e) {
-//     var url = "https://8ifco0noyd.execute-api.us-east-1.amazonaws.com/prod/events";
-//
-//
-//     console.log("Form: " + $("#createEventForm").serialize());
-//
-//     $.ajax({
-//       type: "POST",
-//       xhrFields: {
-//         withCredentials: true
-//       },
-//       url: url,
-//       data: $("#createEventForm").serialize(), // serializes the form's elements.
-//       success: function(data) {
-//         console.log(data); // show response from the php script.
-//       }
-//     });
-//
-//     e.preventDefault(); // avoid to execute the actual submit of the form.
-// });
