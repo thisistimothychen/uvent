@@ -1,14 +1,11 @@
 body {
   background-color: #FACF7D;
-  font-family: Barlow Semi Condensed;
+  font-family: Roboto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   font-family: Montserrat;
-}
-
-div {
-  padding: 10px;
+  color: #4A403D;
 }
 
 h1 {
@@ -17,8 +14,10 @@ h1 {
 h2 {
   font-size: 40px;
 }
-p {
+h6 {
   font-size: 20px;
+  font-family: Barlow Semi Condensed;
+  color: #4A403D;
 }
 
 #main {
@@ -42,28 +41,10 @@ p {
  .input-field label {
    color: #4A403D;
  }
- /* label focus color */
- .input-field input[type=text]:focus + label {
-   color: #4A403D;
- }
  /* label underline focus color */
  .input-field input[type=text]:focus {
    border-bottom: 1px solid #4A403D;
    box-shadow: 0 1px 0 0 #4A403D;
- }
- /* valid color */
- .input-field input[type=text].valid {
-   border-bottom: 1px solid #4A403D;
-   box-shadow: 0 1px 0 0 #4A403D;
- }
- /* invalid color */
- .input-field input[type=text].invalid {
-   border-bottom: 1px solid #4A403D;
-   box-shadow: 0 1px 0 0 #4A403D;
- }
- /* icon prefix focus color */
- .input-field .prefix.active {
-   color: #4A403D;
  }
 
 

@@ -1,0 +1,14 @@
+{
+  "name": "uvent-frontend",
+  "version": "1.0.0",
+  "description": "Alexa skill to discover events around you",
+  "main": "app.js",
+  "author": "Timothy Chen and Tal Davidi",
+  "scripts": {
+    "start" : "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
+}

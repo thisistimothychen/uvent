@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  $('.modal').modal();
+});
+
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -19,12 +24,48 @@ $('.timepicker').pickatime({
   aftershow: function(){} //Function for after opening timepicker
 });
 
+var getPrettyDate = function(date) {
+    // var strArray=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    // var d = date.getDate();
+    // var m = strArray[date.getMonth()];
+    // var y = date.getFullYear();
+    // return '' + m + ' ' + d + ', ' + y + ' ';
+
+    return date.toDateString() + ', ' + date.getHours() + ':' + date.getMinutes();
+}
+
 var getEvents = function() {
   console.log("Getting events...");
   var url = "https://8ifco0noyd.execute-api.us-east-1.amazonaws.com/prod/events?begin=" + (new Date()).toISOString().substring(0,19)+'Z' + "&end=";
 
   $.get(url, function(res, status) {
     console.log(res);
+
+    for(var i = 0; i < res['Items'].length; i++) {
+      const e = res['Items'][i];
+      console.log(e);
+
+      var eventCard = '<li class="collection-item">'
+        + '<span class="title"><b>' + e['name'] + '</b></span>'
+        + '<p><i>' + getPrettyDate(new Date(e['startDate'])) + '</i>' + '<br>'
+        + e['location'] + ' --- ' + e['description'] + '<br>'
+        + '</p>'
+
+      $('#eventCards').append(eventCard);
+    }
+
+
+
+    // <li class="collection-item avatar">
+    //   <img src="images/yuna.jpg" alt="" class="circle">
+    //   <span class="title">Title</span>
+    //   <p>First Line <br>
+    //      Second Line
+    //   </p>
+    //   <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    // </li>
+
+    $('#eventsModal').modal('open');
   });
 };
 
