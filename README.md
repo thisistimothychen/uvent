@@ -40,7 +40,7 @@ We want everyone to experiment with event data, so we've exposed our APIs for an
 - DynamoDB: stores event data
 - API Gateway: exposes a public API to upload and get events
 - AWS Lambda: Node.js functions to interface with DynamoDB and expose to API Gateway, scheduling daily web scraping, Alexa Skill logic
-- S3: hosts the website
+- Elastic Beanstalk: hosts the website (we created a Node/Express server because why not)
 - Materialize CSS
 
 ## Challenges we ran into
