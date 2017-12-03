@@ -30,8 +30,8 @@ var getPrettyDate = function(date) {
     // var m = strArray[date.getMonth()];
     // var y = date.getFullYear();
     // return '' + m + ' ' + d + ', ' + y + ' ';
-
-    return date.toDateString() + ', ' + date.getHours() + ':' + date.getMinutes();
+    var minutesStr = (date.getMinutes() == 0) ? '00' : date.getMinutes();
+    return date.toDateString() + ', ' + date.getHours() + ':' + minutesStr;
 }
 
 var getEvents = function() {
