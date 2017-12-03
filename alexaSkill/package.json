@@ -1,0 +1,8 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "alexa-sdk": "^1.0.22",
+    "amazon-date-parser": "^0.1.5"
+  }
+}
