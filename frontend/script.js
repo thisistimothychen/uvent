@@ -35,38 +35,34 @@ var getPrettyDate = function(date) {
 }
 
 var getEvents = function() {
-  console.log("Getting events...");
-  var url = "https://8ifco0noyd.execute-api.us-east-1.amazonaws.com/prod/events?begin=" + (new Date()).toISOString().substring(0,19)+'Z' + "&end=";
 
-  $.get(url, function(res, status) {
-    console.log(res);
+  if (document.getElementById('eventCards').innerHTML == "") {
+    console.log("Getting events...");
+    var url = "https://8ifco0noyd.execute-api.us-east-1.amazonaws.com/prod/events?begin=" + (new Date()).toISOString().substring(0,19)+'Z' + "&end=";
 
-    for(var i = 0; i < res['Items'].length; i++) {
-      const e = res['Items'][i];
-      console.log(e);
+    $.get(url, function(res, status) {
+      console.log(res);
 
-      var eventCard = '<li class="collection-item">'
-        + '<span class="title"><b>' + e['name'] + '</b></span>'
-        + '<p><i>' + getPrettyDate(new Date(e['startDate'])) + '</i>' + '<br>'
-        + e['location'] + ' --- ' + e['description'] + '<br>'
-        + '</p>'
+      for(var i = 0; i < res['Items'].length; i++) {
+        const e = res['Items'][i];
+        console.log(e);
 
-      $('#eventCards').append(eventCard);
-    }
+        var eventCard = '<li class="collection-item">'
+          + '<span class="title"><b>' + e['name'] + '</b></span>'
+          + '<p><i>' + getPrettyDate(new Date(e['startDate'])) + '</i>' + '<br>'
+          + e['location'] + ' --- ' + e['description'] + '<br>'
+          + '</p>'
 
+        $('#eventCards').append(eventCard);
+      }
 
-
-    // <li class="collection-item avatar">
-    //   <img src="images/yuna.jpg" alt="" class="circle">
-    //   <span class="title">Title</span>
-    //   <p>First Line <br>
-    //      Second Line
-    //   </p>
-    //   <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    // </li>
-
+      $('#eventsModal').modal('open');
+    });
+  } else {
+    console.log('Events already listed.');
     $('#eventsModal').modal('open');
-  });
+  }
+
 };
 
 $('#createEventForm').submit(function(e) {
