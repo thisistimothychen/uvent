@@ -1,9 +1,9 @@
 # Uvent
 Alexa skill to discover events around you
 
-![Frontend Screenshot](/frontend/imgs/Frontend Screenshot.png)
+![Frontend Screenshot](/frontend/imgs/Frontend Screenshot.PNG)
 
-![Frontend Screenshot with Modal Open](/frontend/imgs/Modal Screenshot.png)
+![Frontend Screenshot with Modal Open](frontend/imgs/Modal Screenshot.PNG)
 
 
 
