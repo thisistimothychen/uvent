@@ -1,0 +1,40 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "ListEvent",
+        "samples": [
+          "What events are happening {date}",
+          "What events are happening on {date}",
+          "What's going on {date}",
+          "Is there anything interesting to do {date}",
+          "What can I do {date}",
+          "What to do {date}",
+          "Things to do {date}",
+          "About events happening {date}",
+          "What is happening {date}",
+          "Where can I go {date}"
+        ],
+        "slots": [
+          {
+            "name": "date",
+            "type": "AMAZON.DATE"
+          }
+        ]
+      }
+    ],
+    "invocationName": "you vent"
+  }
+}
