@@ -1,9 +1,9 @@
 # Uvent
 Alexa skill to discover events around you
 
-![Frontend Screenshot](/frontend/imgs/Frontend Screenshot.PNG)
+![Frontend Screenshot](/frontend/imgs/Frontend Screenshot.png)
 
-![Frontend Screenshot with Modal Open](frontend/imgs/Modal Screenshot.PNG)
+![Frontend Screenshot with Modal Open](frontend/imgs/Modal Screenshot.png)
 
 
 
@@ -39,7 +39,7 @@ We want everyone to experiment with event data, so we've exposed our APIs for an
 - Alexa Skill Kit
 - DynamoDB: stores event data
 - API Gateway: exposes a public API to upload and get events
-- AWS Lambda: Node.js functions to interface with DynamoDB and expose to API Gateway, scheduling daily web scraping, Alexa Skill logic
+- AWS Lambda: Node.js functions to interface with DynamoDB and expose to API Gateway, scheduling daily web scraping (with Cloudwatch), Alexa Skill logic
 - Elastic Beanstalk: hosts the website (we created a Node/Express server because why not)
 - Materialize CSS
 
