@@ -157,7 +157,7 @@ const listed_mode_handlers = Alexa.CreateStateHandler(states.LISTEDMODE, {
         const intentObj = this.event.request.intent;
         let savedEvents = this.attributes['savedEvents'];
 
-        eventObj = getEventObject(intentObj, savedEvents);
+        eventObj = getEventObject(this, savedEvents);
         if (eventObj == null){
 
             let speechOutput = "Please tell me which event you want to hear about.";
@@ -167,6 +167,7 @@ const listed_mode_handlers = Alexa.CreateStateHandler(states.LISTEDMODE, {
         else {
             let speechOutput = "The description of the event named " + eventObj.name + " is " + eventObj.description;
             let reprompt = "Would you like to learn more about the events I listed?";
+            this.attributes['lastEvent'] = eventObj;
             this.emit(':ask', speechOutput, reprompt);
         }
     },
@@ -174,7 +175,7 @@ const listed_mode_handlers = Alexa.CreateStateHandler(states.LISTEDMODE, {
         const intentObj = this.event.request.intent;
         let savedEvents = this.attributes['savedEvents'];
 
-        eventObj = getEventObject(intentObj, savedEvents);
+        eventObj = getEventObject(this, savedEvents);
         if (eventObj == null){
 
             let speechOutput = "Please tell me which event you want to hear about.";
@@ -182,7 +183,10 @@ const listed_mode_handlers = Alexa.CreateStateHandler(states.LISTEDMODE, {
             this.emit(':ask', speechOutput, reprompt);
         }
         else {
-            let speechOutput = "The time of the event named " + eventObj.name + " is " + eventObj.startDate;
+
+            d = new Date(eventObj.startDate.replace("Z",""));
+            dateWords = d.getHours() % 12 + " " + (d.getMinutes() == 0 ? "o-clock" : d.getMinutes()) + " " + (d.getHours() >= 12 ? "PM" : "AM");
+            let speechOutput = eventObj.name + " starts at " + dateWords;
             let reprompt = "Would you like to learn more about the events I listed?";
             this.emit(':ask', speechOutput, reprompt);
         }
@@ -238,8 +242,9 @@ function lev (a, b){
   return matrix[b.length][a.length];
 };
 
-function getEventObject (intentObj, savedEvents){
+function getEventObject (requestObject, savedEvents){
 
+    const intentObj = requestObject.event.request.intent;
     if (intentObj.slots.eventName.value){
         let eventName = intentObj.slots.eventName.value;
         let closestIndex = 0;
@@ -257,9 +262,13 @@ function getEventObject (intentObj, savedEvents){
     }
     else if (intentObj.slots.index.value){
         let ordinal = intentObj.slots.index.value
-        console.log(ordinal);
-        let eventObj = savedEvents[0];
+        let index = parseInt(ordinal) - 1;
+
+        let eventObj = savedEvents[index];
         return eventObj;
+    }
+    else if (requestObject.attributes['lastEvent'] != null){
+        return requestObject.attributes['lastEvent'];
     }
     else {
         return null;
