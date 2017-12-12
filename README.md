@@ -1,9 +1,9 @@
 # Uvent
 Alexa skill to discover events around you
 
-![Frontend Screenshot](/frontend/imgs/Frontend Screenshot.png)
+![Frontend Screenshot](/frontend/imgs/FrontendScreenshot.png)
 
-![Frontend Screenshot with Modal Open](frontend/imgs/Modal Screenshot.png)
+![Frontend Screenshot with Modal Open](frontend/imgs/ModalScreenshot.png)
 
 
 
@@ -131,4 +131,4 @@ $.get(url, function(res, status) {
 
 
 #### Color Scheme
-![Color Scheme](/frontend/imgs/Uvent Branding.png)
+![Color Scheme](/frontend/imgs/UventBranding.png)
