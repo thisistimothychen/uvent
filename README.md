@@ -1,15 +1,17 @@
 # Uvent
 Alexa skill to discover events around you
 
-## Deliverables
-[Project Proposal](https://github.com/timothychen01/uvent/blob/master/deliverables/CMSC389L%20Final%20Project%20Proposal.pdf)
-[Checkpoint Document](https://github.com/timothychen01/uvent/blob/master/deliverables/CMSC389L%20Final%20Project%20Checkpoint.pdf)
-[Demo Video](https://www.youtube.com/watch?v=uM8DYldtCOQ)
-
 ![Frontend Screenshot](/frontend/imgs/FrontendScreenshot.png)
 
 ![Frontend Screenshot with Modal Open](frontend/imgs/ModalScreenshot.png)
 
+
+## Deliverables
+[Project Proposal](https://github.com/timothychen01/uvent/blob/master/deliverables/CMSC389L%20Final%20Project%20Proposal.pdf)
+
+[Checkpoint Document](https://github.com/timothychen01/uvent/blob/master/deliverables/CMSC389L%20Final%20Project%20Checkpoint.pdf)
+
+[Demo Video](https://www.youtube.com/watch?v=uM8DYldtCOQ)
 
 
 ## Inspiration
