@@ -1,5 +1,8 @@
 # Uvent
-Alexa skill to discover events around you
+Uvent is an automatically updating service which helps users find nearby events. Users can use Amazon Alexa to discover interesting events going around on campus (currently available for UMD). Each morning, Uvent scrapes datasets and calendars to load new event information. This information is available through the Alexa skill, our frontend website, and our public API. Users can also submit events to our database through our website or through POST requests.
+
+## AWS Services Used
+Lambda, DynamoDB, API Gateway, Elastic Beanstalk, Alexa Skills Kit
 
 ![Frontend Screenshot](/frontend/imgs/FrontendScreenshot.png)
 
