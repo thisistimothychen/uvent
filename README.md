@@ -31,7 +31,12 @@ Example:
 
 > “Hey Alexa! Ask Uvent what’s going on this weekend?”
 
- Finally, you can get some use out of your Echo Dots!  
+Finally, you can get some use out of your Echo Dots!
+
+
+## Architecture
+
+![Architecture Diagram](deliverables/architecture.png)
 
 ## Components
 #### Amazon Alexa Interface
